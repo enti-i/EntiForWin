@@ -1,6 +1,6 @@
 ---
-title: Copies Atmosphere Readme
-description: Copies Atmosphere Readme to users desktop
+title: Copies EntiForWin Readme
+description: Copies EntiForWin Readme to users desktop
 actions:
   - !cmd:
     command: 'copy /y "AtmosphereReadme.txt" "%userprofile%\Desktop\README.txt"'

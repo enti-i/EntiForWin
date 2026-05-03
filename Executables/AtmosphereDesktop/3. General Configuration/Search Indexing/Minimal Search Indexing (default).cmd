@@ -26,7 +26,7 @@ echo]
 
 %indexConf% /cleanpolicies
 :: Add only the Start Menu and AtmosphereDesktop paths by default
-:: The Atmosphere folder is so that if the user searches for a Atmosphere-modified feature, a script shows up in search
+:: The EntiForWin folder is so that if the user searches for an EntiForWin-modified feature, a script shows up in search
 %indexConf% /include "%programdata%\Microsoft\Windows\Start Menu\Programs"
 %indexConf% /include "%windir%\AtmosphereDesktop"
 %indexConf% /exclude "%systemdrive%\Users"

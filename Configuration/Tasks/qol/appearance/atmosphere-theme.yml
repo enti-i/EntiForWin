@@ -33,7 +33,7 @@ actions:
     wait: true
     runas: currentUserElevated
 
-    # Applies Atmosphere lockscreen background
+    # Applies EntiForWin lockscreen background
     # Also disables fun facts, tips, tricks, and more on lockscreen - only on Enterprise/Education
   - !registryValue:
     path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization'
@@ -60,7 +60,7 @@ actions:
     wait: true
     runas: currentUserElevated
 
-    # Set Atmosphere theme as default for new users
+    # Set EntiForWin theme as default for new users
   - !registryValue:
     path: 'HKCU\Software\Policies\Microsoft\Windows\Personalization'
     value: 'ThemeFile'

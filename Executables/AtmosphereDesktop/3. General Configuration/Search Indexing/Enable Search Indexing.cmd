@@ -25,7 +25,7 @@ echo]
 
 %indexConf% /cleanpolicies
 %indexConf% /include "%programdata%\Microsoft\Windows\Start Menu\Programs"
-:: The Atmosphere folder is so that if the user searches for a Atmosphere-modified feature, a script shows up in search
+:: The EntiForWin folder is so that if the user searches for an EntiForWin-modified feature, a script shows up in search
 %indexConf% /include "%windir%\AtmosphereDesktop"
 %indexConf% /include "%systemdrive%\Users"
 :: Add default user exclusions

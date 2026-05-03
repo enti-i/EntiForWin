@@ -1,6 +1,6 @@
 ---
 title: Root Playbook File
-description: Runs all of the atmosphere playbook Tasks
+description: Runs all of the EntiForWin playbook Tasks
 actions:
   # ------------------------- NOTES ------------------------- #
 
@@ -21,7 +21,7 @@ actions:
   # (for logging purposes i brought this over to main.yml)
   # -------------------------------------------------
   - !task: {path: 'Tasks\copy-folders.yml', iso: false}
-  - !status: {status: 'Preparing Atmosphere'}
+  - !status: {status: 'Preparing EntiForWin'}
   # Install ms store apps before possibly destructive changes
   - !task: {path: 'Tasks\software.yml', iso: false, oobe: false} # cache during injection
   - !task: {path: 'Tasks\iso\iso.yml', iso: only, option: 'custom-privacy'}

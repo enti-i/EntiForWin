@@ -1,6 +1,6 @@
 ---
 title: Delete Windows-version Specific Tweaks
-description: Deletes Windows 10 or Windows 11-only tweaks in the Atmosphere folder, depending on the current version
+description: Deletes Windows 10 or Windows 11-only tweaks in the EntiForWin folder, depending on the current version
 actions:
     # Delete files exclusive to Windows 11
   - !file: {path: '%windir%\AtmosphereDesktop\3. General Configuration\Background Apps', builds: [ '<22000' ]}
