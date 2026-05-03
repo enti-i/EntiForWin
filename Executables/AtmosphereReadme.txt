@@ -1,8 +1,8 @@
-Thank you for installing AtmosphereOS v0.2.0!
+Thank you for installing EntiForWin v0.2.0!
 
-We recommend checking out the Atmosphere folder on your desktop to get started.
+We recommend checking out the EntiForWin folder on your desktop to get started.
 
-AtmosphereOS is designed to cut out the unnecessary clutter from your operating system.
+EntiForWin is designed to cut out the unnecessary clutter from your operating system.
 Our mission is to deliver an OS that prioritizes:
     Privacy
     Performance
@@ -10,6 +10,6 @@ Our mission is to deliver an OS that prioritizes:
     User Interface & Usability
     A genuinely user-friendly experience
 
-We hope you enjoy your experience with AtmosphereOS v0.2.0!
+We hope you enjoy your experience with EntiForWin v0.2.0!
 
-<3 — Atmosphere Team & Goldendraggon
+<3 — EntiForWin Team & Goldendraggon

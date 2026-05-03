@@ -1,6 +1,6 @@
 ---
 title: Copy Folders
-description: Copies Atmosphere folders to the Windows directory
+description: Copies EntiForWin folders to the Windows directory
 actions:
 # IM STUPID
   - !cmd:

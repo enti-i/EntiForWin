@@ -1,8 +1,8 @@
-# AtmosphereOS
-**AtmosphereOS** is a Windows 11 \ 10 AME Wizard playbook aimed at improving many Windows aspects.<br>
-While based on **AtlasOS**, AtmosphereOS takes a more modular approach — giving users the ability to customize more deeply based on their needs and preferences.
+# EntiForWin
+**EntiForWin** is an AME Wizard playbook designed for the widest possible Windows build coverage.<br>
+While based on **AtlasOS**, EntiForWin takes a more modular approach — giving users the ability to customize more deeply based on their needs and preferences.
 
-## AtmosphereOS goals
+## EntiForWin goals
  - Privacy
  - Performance
  - Ui/Usability
@@ -17,17 +17,17 @@ While based on **AtlasOS**, AtmosphereOS takes a more modular approach — givin
 
 Join our [Discord Server](https://discord.gg/Aur9PGvzVt) for development updates.
 
-You can also check [Atmosphere Development Project](https://github.com/orgs/AtmosphereTeam/projects/1).
+You can also check the EntiForWin development project updates on GitHub.
 
-## 🛠️ AtmosphereTool
+## 🛠️ EntiForWin Tool
 
-While the playbook being powerful on its own, we plan to increase AtmosphereOS capabilities with AtmosphereTool.
-AtmosphereTool is on [GitHub](https://github.com/Goldendraggon/AtmosphereTool)
+While the playbook being powerful on its own, we plan to increase EntiForWin capabilities with EntiForWin Tool.
+EntiForWin Tool is on [GitHub](https://github.com/Goldendraggon/EntiForWinTool)
 
-## Atmosphere Hub
+## EntiForWin Hub
 
-- [Atmosphere Discord Server](https://discord.gg/Aur9PGvzVt) 
-- [Atmosphere Website](https://atmosphereos.xyz/)
+- [EntiForWin Discord Server](https://discord.gg/Aur9PGvzVt) 
+- [EntiForWin Website](https://atmosphereos.xyz/)
 
 ## Projects Used
 

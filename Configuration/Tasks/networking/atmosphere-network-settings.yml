@@ -1,6 +1,6 @@
 ---
-title: Applies Atmosphere' Network Settings
-description: Applies Atmosphere' optimised network settings
+title: Applies EntiForWin Network Settings
+description: Applies EntiForWin optimized network settings
 actions:
   - !cmd:
     command: '"AtmosphereDesktop\8. Troubleshooting\Network\Reset Network to Atmosphere Default.cmd" /silent'

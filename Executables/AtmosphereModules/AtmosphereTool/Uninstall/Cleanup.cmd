@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableDelayedExpansion
-echo This is the 2nd stage of AtmosphereOS uninstallation
+echo This is the 2nd stage of EntiForWin uninstallation
 fltmc >nul 2>&1 || (
     echo.
     echo This script requires Administrator privileges.
@@ -9,7 +9,7 @@ fltmc >nul 2>&1 || (
 )
 echo Removing AtmosphereTool...
 rmdir /s /q "C:\Program Files\AtmosphereTool"
-echo Removing AtmosphereOS Folders...
+echo Removing EntiForWin Folders...
 rmdir /s /q "C:\Windows\AtmosphereDesktop"
 rmdir /s /q "C:\Windows\AtmosphereModules"
 echo Resetting Themes...

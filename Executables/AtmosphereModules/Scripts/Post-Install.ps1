@@ -6,13 +6,13 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 
 $windir = [Environment]::GetFolderPath('Windows')
 & "$windir\AtmosphereModules\initPowerShell.ps1"
-$AtmosphereDesktop = "$windir\AtmosphereDesktop"
-$AtmosphereModules = "$windir\AtmosphereModules"
+$EntiForWinDesktop = "$windir\AtmosphereDesktop"
+$EntiForWinModules = "$windir\AtmosphereModules"
 
-$title = 'Finalizing AtmosphereOS Installation'
+$title = 'Finalizing EntiForWin Installation'
 
-if (!(Test-Path $AtmosphereDesktop) -or !(Test-Path $AtmosphereModules)) {
-    Write-Host "Atmosphere was about to configure user settings, but its files weren't found. :(" -ForegroundColor Red
+if (!(Test-Path $EntiForWinDesktop) -or !(Test-Path $EntiForWinModules)) {
+    Write-Host "EntiForWin was about to configure user settings, but its files weren't found. :(" -ForegroundColor Red
     Read-Pause
     exit 1
 }
@@ -60,9 +60,9 @@ $ownerSid = $userInfo.SID
 $Host.UI.RawUI.WindowTitle = $title
 Write-Host $title -ForegroundColor Yellow
 Write-Host $('-' * ($title.length + 3)) -ForegroundColor Yellow
-Write-Host "You'll be logged out once this is finished, and once you login again, Atmosphere will be ready for full use."
+Write-Host "You'll be logged out once this is finished, and once you login again, EntiForWin will be ready for full use."
 Write-Host $('-' * ($title.length + 3)) -ForegroundColor Yellow
-Write-Host "Finalizing AtmosphereOS..."
+Write-Host "Finalizing EntiForWin..."
 
 $installers = Get-ChildItem -Path "C:\Iso\Installers"
 
@@ -96,12 +96,12 @@ if ($installers.Name -like "FirefoxSetup.exe") {
 # Open-Shell
 if ($installers.Name -like "OpenShellSetup.exe") {
     Write-Host "Configuring Start Menu..."
-    Start-Process -FilePath "$AtmosphereModules\Scripts\SLNT.bat" -ArgumentList "nu" -WindowStyle Hidden -Wait
+    Start-Process -FilePath "$EntiForWinModules\Scripts\SLNT.bat" -ArgumentList "nu" -WindowStyle Hidden -Wait
     Write-Host "Finished Configuring Start Menu."
 }
 
 # Fix Shortcuts
-Remove-Item -Path "$startupdir\AtmosphereUser.lnk" -Force -ErrorAction SilentlyContinue | Out-Null
+Remove-Item -Path "$startupdir\EntiForWinUser.lnk" -Force -ErrorAction SilentlyContinue | Out-Null
 
 $winusersFolder = "$env:SystemDrive\Users"
 $Default = Join-Path $winusersFolder "Default"
@@ -112,10 +112,10 @@ $scriptPath = "$windir\AtmosphereModules\Scripts\newUsers.ps1"
 foreach ($userTemplate in @($Default, $defaultuser0)) {
     if (Test-Path $userTemplate) {
         $startup = Join-Path $userTemplate $startupDirMini
-        Remove-Item -Path "$startup\AtmosphereUser.lnk" -Force -ErrorAction SilentlyContinue | Out-Null
+        Remove-Item -Path "$startup\EntiForWinUser.lnk" -Force -ErrorAction SilentlyContinue | Out-Null
         New-Shortcut `
             -Source "cmd.exe" `
-            -Destination "$startup\AtmosphereUser.lnk" `
+            -Destination "$startup\EntiForWinUser.lnk" `
             -Arguments "/c powershell.exe -NoProfile -ExecutionPolicy Bypass -File `"$scriptPath`"" | Out-Null
     }
 }
@@ -125,8 +125,8 @@ Write-Host "Configuring User..."
 
 # Disable Windows 11 context menu & 'Gallery' in File Explorer
 if ([System.Environment]::OSVersion.Version.Build -ge 22000) {
-    reg import "$AtmosphereDesktop\4. Interface Tweaks\Context Menus\Windows 11\Old Context Menu (default).reg" *>$null
-    reg import "$AtmosphereDesktop\4. Interface Tweaks\File Explorer Customization\Gallery\Disable Gallery (default).reg" *>$null
+    reg import "$EntiForWinDesktop\4. Interface Tweaks\Context Menus\Windows 11\Old Context Menu (default).reg" *>$null
+    reg import "$EntiForWinDesktop\4. Interface Tweaks\File Explorer Customization\Gallery\Disable Gallery (default).reg" *>$null
 
     # Set ThemeMRU (recent themes)
     Set-ThemeMRU | Out-Null
@@ -136,13 +136,13 @@ if ([System.Environment]::OSVersion.Version.Build -ge 22000) {
 Set-LockscreenImage
 
 # Disable 'Network' in navigation pane
-reg import "$AtmosphereDesktop\3. General Configuration\File Sharing\Network Navigation Pane\Disable Network Navigation Pane (default).reg" *>$null
+reg import "$EntiForWinDesktop\3. General Configuration\File Sharing\Network Navigation Pane\Disable Network Navigation Pane (default).reg" *>$null
 
 # Disable Automatic Folder Discovery
-reg import "$AtmosphereDesktop\4. Interface Tweaks\File Explorer Customization\Automatic Folder Discovery\Disable Automatic Folder Discovery (default).reg" *>$null
+reg import "$EntiForWinDesktop\4. Interface Tweaks\File Explorer Customization\Automatic Folder Discovery\Disable Automatic Folder Discovery (default).reg" *>$null
 
 # Set visual effects
-Start-Process -FilePath "$AtmosphereDesktop\4. Interface Tweaks\Visual Effects (Animations)\Atmosphere Visual Effects (default).cmd" -ArgumentList "/silent" -Wait
+Start-Process -FilePath "$EntiForWinDesktop\4. Interface Tweaks\Visual Effects (Animations)\Atmosphere Visual Effects (default).cmd" -ArgumentList "/silent" -Wait
 
 # Pin 'Videos' and 'Music' folders to Home/Quick Acesss
 $o = new-object -com shell.application
@@ -197,7 +197,7 @@ foreach ($Theme in $Themes.GetEnumerator()) {
 }
 
 if ($chosenTheme) { 
-    # Set Atmosphere theme as default for current user
+    # Set EntiForWin theme as default for current user
     $themeKey = "Registry::HKEY_USERS\$ownerSid\Software\Policies\Microsoft\Windows\Personalization"
     New-Item -Path $themeKey -Force | Out-Null
     Set-ItemProperty -Path $themeKey -Name "ThemeFile" -Value "$windir\Resources\Themes\$chosenTheme"
@@ -220,12 +220,12 @@ if (Test-Path "C:\Program Files\AtmosphereTool\AtmosphereTool.exe") {
 }
 
 
-# Atmosphere Desktop
-if (-not (Test-Path "$profilePath\Desktop\Atmosphere.lnk")) {
-    New-Shortcut -Source "$windir\AtmosphereDesktop" -Destination "$profilePath\Desktop\Atmosphere.lnk" -Icon "$windir\AtmosphereModules\Other\atmosphere-folder.ico,0"
+# EntiForWin Desktop
+if (-not (Test-Path "$profilePath\Desktop\EntiForWin.lnk")) {
+    New-Shortcut -Source "$windir\AtmosphereDesktop" -Destination "$profilePath\Desktop\EntiForWin.lnk" -Icon "$windir\AtmosphereModules\Other\atmosphere-folder.ico,0"
 }
 
-Remove-Item "$startupdir\AtmosphereUser.lnk" -ErrorAction SilentlyContinue | Out-Null
-Write-Host "Finished Finalizing AtmosphereOS. Logging Off In 5 Seconds..."
+Remove-Item "$startupdir\EntiForWinUser.lnk" -ErrorAction SilentlyContinue | Out-Null
+Write-Host "Finished Finalizing EntiForWin. Logging Off In 5 Seconds..."
 Start-Sleep 5
 logoff

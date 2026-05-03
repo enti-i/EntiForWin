@@ -2,7 +2,7 @@
 set "title=call :title"
 set "servicesPath=%windir%\AtmosphereDesktop\6. Advanced Configuration\Services"
 if not exist "%servicesPath%" (
-	echo Services in Atmosphere folder not found, can't continue.
+	echo Services in EntiForWin folder not found, can't continue.
 	if "%*"=="" pause
 	exit /b 1
 )
@@ -14,14 +14,14 @@ whoami /user | find /i "S-1-5-18" > nul 2>&1 || (
 	exit /b
 )
 
-echo This will reset the configuration of services in the Atmosphere folder.
+echo This will reset the configuration of services in the EntiForWin folder.
 echo Disabling services often breaks features, and if you're experiencing an issue, this might help.
 echo]
 choice /c:yn /n /m "Continue? [Y/N] "
 if %errorlevel% neq 1 exit /b
 
 :main
-%title% "Enabling services in the Atmosphere folder... This might take a while."
+%title% "Enabling services in the EntiForWin folder... This might take a while."
 for /f "usebackq tokens=*" %%a in (`dir /b /s "%windir%\AtmosphereDesktop\6. Advanced Configuration\Services" ^| find "(default)"`) do (
 	call :run "%%a"
 	start /min /high /wait cmd /c "%%a" /silent
